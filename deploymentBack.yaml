@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+   name: qrqc
+   namespace: default
+spec:
+   replicas: 1
+   selector:
+      matchLabels:
+         app: qrqc
+   template:
+      metadata:
+         labels:
+            app: qrqc
+      spec:
+         containers:
+            - name: backend
+              image: aymen065/back
+              ports:
+              - containerPort: 5000
